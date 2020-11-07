@@ -1,4 +1,4 @@
-from backend import app, mysql
+from backend import app
 from backend.utils import RegisterForm
 from backend.utils import success_response, error_response
 from backend.api import cadastroComentario, cadastroUsuario, cadastroDisciplina, cadastroLink, cadastroAvaliacaoDisciplina, cadastroAvaliacaoComentario
@@ -12,6 +12,7 @@ from flask import render_template, flash, redirect, url_for, session, request, j
 # 
 from functools import wraps
 def is_logged_in(f):
+    return f
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'logged_in' in session:

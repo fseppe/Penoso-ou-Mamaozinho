@@ -1,6 +1,7 @@
 from flask import Flask
-from flask_mysqldb import MySQL
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+
 # from flask_session import Session
 from backend.config import CONFIG
 
@@ -14,8 +15,9 @@ app = Flask(
 # configure MySQL
 app.config.update(CONFIG)
 
-# initialize MySQL
-mysql = MySQL(app)
+# initialize database
+db = SQLAlchemy(app)
+
 # Session(app)
 CORS(app)
 
